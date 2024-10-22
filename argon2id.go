@@ -84,6 +84,7 @@ func New(options ...Argon2IdOption) *Argon2Id {
 	return a
 }
 
+// Generate an argon2id encoded hash from the source bytes.
 func (a *Argon2Id) Generate(password []byte) (string, error) {
 	salt := make([]byte, a.saltLength, a.saltLength)
 	n, err := rand.Read(salt)
@@ -102,6 +103,7 @@ func (a *Argon2Id) Generate(password []byte) (string, error) {
 	return fmt.Sprintf(template, argon2.Version, a.memoryCost, a.timeCost, a.parallelismCost, b64Salt, b64Key), nil
 }
 
+// Compare raw password bytes with an argon2id encoded hash.
 func (a *Argon2Id) Compare(password []byte, hash string) error {
 	parts := strings.Split(hash, splitChar)
 	if len(parts) != numParts {
