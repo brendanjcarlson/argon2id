@@ -52,10 +52,18 @@ func main() {
         argon2id.WithTimeCost(4), // default 2
         argon2id.WithMemoryCost(32 * 1024), // default 64 * 1024 (64MB)
         argon2id.WithParallelismCost(2), // default runtime.NumCPU()
-        argon2id.WithSaltLength(48), // default 32
-        argon2id.WithKeyLength(64),
+        argon2id.WithSaltLength(48), // default 16
+        argon2id.WithKeyLength(64), // default 32
     )
 
     // ...
 }
 ```
+
+## Documentation
+
+See user documentation at <https://pkg.go.dev/github.com/brendanjcarlson/argon2id>
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request on GitHub.
