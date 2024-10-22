@@ -25,7 +25,7 @@ func main() {
 
     password := "super-secret"
 
-    passwordHash, err := arg2.Generate([]byte(hash))
+    passwordHash, err := arg2.Generate([]byte(password))
     if err != nil {
         log.Fatalln(err);
     }
